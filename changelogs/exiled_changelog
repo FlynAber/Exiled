@@ -1,0 +1,35 @@
+V1.2
+added help page - currently a WIP
+added the exiled server command. included in command is :
+	screenshot function
+	uploading and downloading of files
+	keylogging
+	all of the commands of the windows CMD
+to run the exiled server the exiled_pay file must be initialized on target PC. current tested antiviruses (2) that don't detect the backdoor:
+	Avast
+	Windows Defender
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+V1.1
+added exit function to main menu
+fixed colouring and messages
+fixed dos attack to cancel if the first packet takes too long to send
+fixed menu to allow incorrect inputs
+added a message at beginning of Dos attack
+assinged symbol and colour to text :
+	user input = [>] - magenta
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+V1.0
+added logo
+added 3 functions : Dos, ipscan, port scan
+added back to menu function
+assinged symbols and colours to text: 
+	input msg = [#] - blue
+	warning = [!] - yellow
+	error = [-] - red
+	success = [+] - green
+	message = [Ex:] - cyan
+
