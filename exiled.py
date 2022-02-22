@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-
 #check to see if modules are installed and if not, install them
-
+print("[Ex:] Starting Exiled")
+print("[Ex:] Checking required packages")
 pkglist = ["socket", "termcolor", "sys", "os", "time", "multiprocessing", "subprocess", "json", "pprint", "pynput", "scapy.all"]
 import importlib
 def install_and_import(package):
@@ -18,10 +18,6 @@ for x in pkglist :
 def main() :
 	#socket timeout
 	socket.setdefaulttimeout(0.01)
-
-	#loading screen
-	print("Starting" + termcolor.colored(" Exiled", 'red') + "...")
-	time.sleep(1)
 
 	programToRun = 0
 
