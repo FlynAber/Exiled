@@ -3,7 +3,7 @@ Exiled is a tool used to compromise and scan networks and computers.
 ## Directory
 - <a href="https://github.com/FlynAber/Exiled#Installation">Installation</a>
 - <a href="https://github.com/FlynAber/Exiled#Features">Features</a>
-- <a href="https://github.com/FlynAber/Exiled#Exiled-server">Exiled Server Commands</a>
+- <a href="https://github.com/FlynAber/Exiled#exiled-server-commands">Exiled Server Commands</a>
 ## Installation
 ```
 git clone https://github.com/FlynAber/Exiled
@@ -22,7 +22,7 @@ git clone https://github.com/FlynAber/Exiled
 - Scans a target computer or server for open ports
 ### Exiled server
 - The Exiled server is hosted on your computer and is used in conjunction with the Exiled payload to gain access to a target computer and gather information.
-- See <a href="https://github.com/FlynAber/Exiled#Exiled-server">Exiled server Commands</a> for a list of commands
+- See <a href="https://github.com/FlynAber/Exiled#exiled-server-commands">Exiled server Commands</a> for a list of commands
 ## Exiled Server Commands
 **Note: all commands can be viewed with the `help` command**
 ### Windows CMD commands
