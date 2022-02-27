@@ -2,7 +2,7 @@
 #check to see if modules are installed and if not, install them
 print("[Ex:] Starting Exiled")
 print("[Ex:] Checking required packages")
-pkglist = ["socket", "termcolor", "sys", "os", "time", "multiprocessing", "subprocess", "json", "pprint", "pynput", "scapy.all"]
+pkglist = ["socket", "termcolor", "sys", "os", "time", "multiprocessing", "subprocess", "json", "pprint", "pynput", "scapy.all", "os.path"]
 import importlib
 def install_and_import(package):
 	try:
@@ -15,10 +15,11 @@ def install_and_import(package):
 
 for x in pkglist :
 	install_and_import(x)
+
+
 def main() :
 	#socket timeout
 	socket.setdefaulttimeout(0.01)
-
 	programToRun = 0
 
 	#----------------------------------------------PROGRAM SELECTOR----------------------------------
@@ -28,7 +29,7 @@ def main() :
 		print("===================================================================================================")
 		print(termcolor.colored("                                                                                          dddddddd\nEEEEEEEEEEEEEEEEEEEEEE                      iiii  lllllll                                 d::::::d\nE::::::::::::::::::::E                     i::::i l:::::l                                 d::::::d\nE::::::::::::::::::::E                      iiii  l:::::l                                 d::::::d\nEE::::::EEEEEEEEE::::E                            l:::::l                                 d:::::d\n  E:::::E       EEEEEE",'red') + termcolor.colored("xxxxxxx      xxxxxxx",'magenta') + termcolor.colored("iiiiiii  l::::l     eeeeeeeeeeee        ddddddddd:::::d\n  E:::::E", 'red') + termcolor.colored("              x:::::x    x:::::x ", 'magenta') + termcolor.colored("i:::::i  l::::l   ee::::::::::::ee    dd::::::::::::::d\n  E::::::EEEEEEEEEE     ", 'red') + termcolor.colored("x:::::x  x:::::x",'magenta') + termcolor.colored("   i::::i  l::::l  e::::::eeeee:::::ee d::::::::::::::::d\n  E:::::::::::::::E",'red') + termcolor.colored("      x:::::xx:::::x",'magenta') + termcolor.colored("    i::::i  l::::l e::::::e     e:::::ed:::::::ddddd:::::d\n  E:::::::::::::::E",'red') + termcolor.colored("       x::::::::::x ",'magenta') + termcolor.colored("    i::::i  l::::l e:::::::eeeee::::::ed::::::d    d:::::d\n  E::::::EEEEEEEEEE   ",'red')+termcolor.colored("     x::::::::x  ",'magenta')+termcolor.colored("    i::::i  l::::l e:::::::::::::::::e d:::::d     d:::::d\n  E:::::E   ",'red')+termcolor.colored("               x::::::::x ",'magenta')+termcolor.colored("     i::::i  l::::l e::::::eeeeeeeeeee  d:::::d     d:::::d\n  E:::::E       EEEEEE ",'red')+termcolor.colored("   x::::::::::x    ",'magenta')+termcolor.colored(" i::::i  l::::l e:::::::e           d:::::d     d:::::d\nEE::::::EEEEEEEE:::::E ",'red')+termcolor.colored("  x:::::xx:::::x  ",'magenta')+termcolor.colored(" i::::::il::::::le::::::::e          d::::::ddddd::::::dd\nE::::::::::::::::::::E ",'red')+termcolor.colored(" x:::::x  x:::::x ",'magenta')+termcolor.colored(" i::::::il::::::l e::::::::eeeeeeee   d:::::::::::::::::d\nE::::::::::::::::::::E ",'red')+termcolor.colored("x:::::x    x:::::x ",'magenta')+termcolor.colored("i::::::il::::::l  ee:::::::::::::e    d:::::::::ddd::::d\nEEEEEEEEEEEEEEEEEEEEEE",'red')+termcolor.colored("xxxxxxx      xxxxxxx",'magenta')+termcolor.colored("iiiiiiiillllllll    eeeeeeeeeeeeee     ddddddddd   ddddd",'red'))
 		print("=============================================================================================" + termcolor.colored("V1.3",'yellow', attrs=['bold']) + "== ")
-		main()
+		chooseprogram()
 	#reprint logo and clear screen
 	def logo2(programToRun) :
 		os.system('clear')
@@ -49,13 +50,73 @@ def main() :
 		elif (programToRun == "6") :
 			programExit()		
 		else :
-			main()
+			chooseprogram()
 	#choose the program
-	def main() :
+	def chooseprogram() :
+
+		
+
+		
 		programToRun = str(input(termcolor.colored("\nWhich program would you like to run?",'yellow') + termcolor.colored("\n[1]",'blue') + " Ip address scan \n" + termcolor.colored("[2]",'blue') + " Dos\n"+ termcolor.colored("[3]",'blue') + " Port scanner\n" + termcolor.colored("[4]",'blue') + " Exiled Server\n"  + termcolor.colored("[5]",'blue') + " Help\n" + termcolor.colored("[6]",'blue') + " Exit\n"  + termcolor.colored("\n[>]", 'magenta') + " "))
 		logo2(programToRun)
 	#-----------------------------------------------PROGRAM SELECTOR----------------------------------
 
+
+	def wineInstallCheck() :
+			os.system('clear')
+			print("===================================================================================================")
+			print(termcolor.colored("                                                                                          dddddddd\nEEEEEEEEEEEEEEEEEEEEEE                      iiii  lllllll                                 d::::::d\nE::::::::::::::::::::E                     i::::i l:::::l                                 d::::::d\nE::::::::::::::::::::E                      iiii  l:::::l                                 d::::::d\nEE::::::EEEEEEEEE::::E                            l:::::l                                 d:::::d\n  E:::::E       EEEEEE",'red') + termcolor.colored("xxxxxxx      xxxxxxx",'magenta') + termcolor.colored("iiiiiii  l::::l     eeeeeeeeeeee        ddddddddd:::::d\n  E:::::E", 'red') + termcolor.colored("              x:::::x    x:::::x ", 'magenta') + termcolor.colored("i:::::i  l::::l   ee::::::::::::ee    dd::::::::::::::d\n  E::::::EEEEEEEEEE     ", 'red') + termcolor.colored("x:::::x  x:::::x",'magenta') + termcolor.colored("   i::::i  l::::l  e::::::eeeee:::::ee d::::::::::::::::d\n  E:::::::::::::::E",'red') + termcolor.colored("      x:::::xx:::::x",'magenta') + termcolor.colored("    i::::i  l::::l e::::::e     e:::::ed:::::::ddddd:::::d\n  E:::::::::::::::E",'red') + termcolor.colored("       x::::::::::x ",'magenta') + termcolor.colored("    i::::i  l::::l e:::::::eeeee::::::ed::::::d    d:::::d\n  E::::::EEEEEEEEEE   ",'red')+termcolor.colored("     x::::::::x  ",'magenta')+termcolor.colored("    i::::i  l::::l e:::::::::::::::::e d:::::d     d:::::d\n  E:::::E   ",'red')+termcolor.colored("               x::::::::x ",'magenta')+termcolor.colored("     i::::i  l::::l e::::::eeeeeeeeeee  d:::::d     d:::::d\n  E:::::E       EEEEEE ",'red')+termcolor.colored("   x::::::::::x    ",'magenta')+termcolor.colored(" i::::i  l::::l e:::::::e           d:::::d     d:::::d\nEE::::::EEEEEEEE:::::E ",'red')+termcolor.colored("  x:::::xx:::::x  ",'magenta')+termcolor.colored(" i::::::il::::::le::::::::e          d::::::ddddd::::::dd\nE::::::::::::::::::::E ",'red')+termcolor.colored(" x:::::x  x:::::x ",'magenta')+termcolor.colored(" i::::::il::::::l e::::::::eeeeeeee   d:::::::::::::::::d\nE::::::::::::::::::::E ",'red')+termcolor.colored("x:::::x    x:::::x ",'magenta')+termcolor.colored("i::::::il::::::l  ee:::::::::::::e    d:::::::::ddd::::d\nEEEEEEEEEEEEEEEEEEEEEE",'red')+termcolor.colored("xxxxxxx      xxxxxxx",'magenta')+termcolor.colored("iiiiiiiillllllll    eeeeeeeeeeeeee     ddddddddd   ddddd",'red'))
+			print("=============================================================================================" + termcolor.colored("V1.3",'yellow', attrs=['bold']) + "== ")
+
+			isWineInstalled = os.path.isdir("/root/.wine/drive_c/")
+			isWinePythonInstalled = os.path.isdir("/root/.wine/drive_c/Program Files/Python38-32")
+			isWinePyinstallerInstalled = os.path.isfile("/root/.wine/drive_c/Program Files/Python38-32/Scripts/pyinstaller.exe")
+			if isWineInstalled == True :
+				print("Wine is installed")
+				if isWinePythonInstalled == True :
+					print("Python is installed correctly in wine")
+					if (isWinePyinstallerInstalled == True) :
+						print("Pyinstaller is installed correctly in wine")
+						logo1()
+					else :
+						install = input(termcolor.colored("[Ex:]", 'cyan') + " Would you like to install Pyinstaller within wine?(Y/N) (Note: this is required for the Payload generator)\n")
+
+						if (install.lower() == "y") :
+							os.system("cd /root/.wine/drive_c/Program\\ Files/Python38-32 && wine python.exe Scripts/pip.exe install https://github.com/pyinstaller/pyinstaller/tarball/develop ")
+							logo1()
+				else :
+					install = input(termcolor.colored("[Ex:]", 'cyan') + " Would you like to install Python38-32 and Pyinstaller within wine?(Y/N) (Note: this is required for the Payload generator)\n")
+
+					if (install.lower() == "y") :
+						print("downloading and running python")
+						os.system("wget -P /root/.wine/drive_c/ https://www.python.org/ftp/python/3.8.10/python-3.8.10.exe")
+						print("Download finished.")
+						print("------------Please follow the following instructions carefully!--------------")
+						instructpause = input("Enter to continue...")
+						print("Click Custom install \n Click next \n click install for all users (check install location is C:\Program Files\Python38-32)")
+						os.system("wine /root/.wine/drive_c/python-3.8.10.exe")
+						os.system("cd /root/.wine/drive_c/Program\\ Files/Python38-32 && wine python.exe Scripts/pip.exe install https://github.com/pyinstaller/pyinstaller/tarball/develop ")
+						logo1()
+			else :
+				install = input(termcolor.colored("[Ex:]", 'cyan') + " Would you like to Wine, Python in wine and Pyinstaller in wine?(Y/N) (Note: this is required for the Payload generator)\n")
+
+				if (install.lower() == "y") :
+					print("Adding Architecture i386")
+					os.system("sudo dpkg --add-architecture i386")
+					print("updating apt lists")
+					os.system("sudo apt-get update")
+					print("installing wine and wine32")
+					os.system("sudo apt-get install wine wine32")
+					os.system("wine init")
+					print("downloading and running python")
+					os.system("wget -P /root/.wine/drive_c/ https://www.python.org/ftp/python/3.8.10/python-3.8.10.exe")
+					print("Download finished.")
+					print("------------Please follow the following instructions carefully!--------------")
+					instructpause = input("Enter to continue...")
+					print("Click Custom install \n Click next \n click install for all users (check install location is C:\Program Files\Python38-32)")
+					os.system("wine /root/.wine/drive_c/python-3.8.10.exe")
+					os.system("cd /root/.wine/drive_c/Program\\ Files/Python38-32 && wine python.exe Scripts/pip.exe install https://github.com/pyinstaller/pyinstaller/tarball/develop ")
+					logo1()
 	#-----------------------------------------------Help----------------------------------------------
 	def ex_help() :
 		print("---------------------HELP PAGE------------------ \n" + "To be added in next version")
@@ -277,7 +338,11 @@ def main() :
 		print('[+] Target Connected From: ' + str(ip))
 		target_communication(target, ip)
 	#--------------------------------------------Exiled server----------------------------------------------------------
+	#--------------------------------------------Exiled Payload Generator----------------------------------------------------------
 
+
+
+	#--------------------------------------------Exiled Payload Generator----------------------------------------------------------
 	#--------------------------------------------PROGRAM REUSE THING---------------------------------------------------
 	def backtomain(currentProgram) :
 		backToMenu = int(input(termcolor.colored("\n[Ex:]", 'cyan') + "Select an option: \n\n 1. Reuse the same program \n 2. Back to menu \n 3. Exit \n" + termcolor.colored("[>]", 'magenta') + " "))
@@ -305,7 +370,7 @@ def main() :
 		sys.exit()
 	#--------------------------------------------EXIT THE PROGRAM---------------------------------------------------
 
-	logo1()
+	wineInstallCheck()
 	                                                                                                                                                                                                                                             
 
 	#input msg = [#] - blue
