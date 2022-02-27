@@ -1,12 +1,17 @@
 # Exiled
 Exiled is a tool used to compromise and scan networks and computers. 
 ## Directory
-- <a href="https://github.com/FlynAber/Exiled#Installation">Installation</a>
+- <a href="https://github.com/FlynAber/Exiled#Installation-and-Usage">Installation and Usage</a>
 - <a href="https://github.com/FlynAber/Exiled#Features">Features</a>
 - <a href="https://github.com/FlynAber/Exiled#exiled-server-commands">Exiled Server Commands</a>
-## Installation
+## Installation and Usage
+To install Exiled run the command:
 ```
 git clone https://github.com/FlynAber/Exiled
+```
+Then to run Exiled enter the Exiled Directory and run :
+```
+python3 exiled.py
 ```
 ## Features
 ### Features Directory
