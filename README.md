@@ -18,6 +18,7 @@ python3 exiled
 - <a href="https://github.com/FlynAber/Exiled#IP-scanner">IP Scanner</a>
 - <a href="https://github.com/FlynAber/Exiled#DOS">DOS</a>
 - <a href="https://github.com/FlynAber/Exiled#Port-Scanner">Port Scanner</a>
+- <a href="https://github.com/FlynAber/Exiled#Payload-Creation">Payload Creation</a>
 - <a href="https://github.com/FlynAber/Exiled#Exiled-server">Exiled server</a>
 ### IP scanner
 - IP scanner to scan a network for all operating IP addresses
@@ -25,12 +26,14 @@ python3 exiled
 - Denial of Service attack (DOS) to flood the network with packets causing it to slow down considerably
 ### Port Scanner
 - Scans a target computer or server for open ports
+### Payload Creation
+ - Create a python backdoor, at your specified directory with a customisable IP and Port. 
+ - Once this file is ran on a target computer a connection is opened to the IP and Port that you picked. This is used in conjunction with <a href="https://github.com/FlynAber/Exiled#Exiled-server">The Exiled server</a>
 ### Exiled server
 - The Exiled server is hosted on your computer and is used in conjunction with the Exiled payload to gain access to a target computer and gather information.
 - See <a href="https://github.com/FlynAber/Exiled#exiled-server-commands">Exiled server Commands</a> for a list of commands
 ## Exiled Server Commands
 **Note: all commands can be viewed with the `help` command**
-## Change line 64 in Exiled_pay.py to your IP address to allow connections. This is temporary until I add a method to create a new python file
 ### Windows CMD commands
  - for a full list of command prompt commands see <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands">Here</a>
 ### Change Directory
