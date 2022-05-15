@@ -334,7 +334,7 @@ def main() :
 	#--------------------------------------------Exiled Payload Generator----------------------------------------------------------
 
 	def exiled_payload_creation() :
-		payloadDirectory = str(input("Where would you like to create the payload? Specify full directory\n i.e /home/user/test/ \n"  + termcolor.colored("[>]", 'magenta')))
+		payloadDirectory = str(input("Where would you like to create the payload? Specify full directory or leave blank to create in the folder you are currently in\n i.e /home/user/test/ \n"  + termcolor.colored("[>]", 'magenta')))
 		customIP = input("What is your IP for the connection\n"  + termcolor.colored("[>]", 'magenta'))
 		customPort = input("What is the desired port for the connection?\n" + termcolor.colored("[>]", 'magenta'))
 		p = open(payloadDirectory + "Exiled_Payload.py", "w")
