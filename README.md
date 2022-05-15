@@ -11,7 +11,7 @@ git clone https://github.com/FlynAber/Exiled
 ```
 Then to run Exiled enter the Exiled Directory and run :
 ```
-python3 exiled.py
+python3 exiled
 ```
 ## Features
 ### Features Directory
@@ -30,6 +30,7 @@ python3 exiled.py
 - See <a href="https://github.com/FlynAber/Exiled#exiled-server-commands">Exiled server Commands</a> for a list of commands
 ## Exiled Server Commands
 **Note: all commands can be viewed with the `help` command**
+## Change line 64 in Exiled_pay.py to your IP address to allow connections. This is temporary until I add a method to create a new python file
 ### Windows CMD commands
  - for a full list of command prompt commands see <a href="https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands">Here</a>
 ### Change Directory
